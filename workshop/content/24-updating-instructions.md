@@ -34,9 +34,10 @@ command: educates publish-workshop
 
 In the separate web browser window where the demo workshop is running, terminate
 the workshop session (see picture below) and create a new workshop session from the training portal.
-You should now see the modifications you made.
+You should now see the modifications you made. `DO NOT TERMINATE THIS WORKSHOP`
 
 {{< figure src="../images/workshop-controls.png" >}}
+
 
 Note that obviously we used the embedded editor provided by the workshop session
 to update the workshop files. When working from your own local computer you can

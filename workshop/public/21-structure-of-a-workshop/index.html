@@ -439,9 +439,9 @@
   data-session-namespace='educates-cli-w13-s002' data-workshop-namespace='educates-cli-w13'
   data-training-portal='educates-cli' data-ingress-domain='kind.mac16.tanzu-devs.com'
   data-ingress-protocol='https' data-ingress-port-suffix=''
-  data-prev-page='26-realtime-updates' data-current-page='30-workshop-definition'
-  data-next-page='99-workshop-summary' data-page-format='markdown' data-code-fences='chroma'
-  data-page-step='19' data-pages-total='20'>
+  data-prev-page='20-authoring-workshops' data-current-page='21-structure-of-a-workshop'
+  data-next-page='22-publishing-workshops' data-page-format='markdown' data-code-fences='chroma'
+  data-page-step='13' data-pages-total='20'>
 
   
 
@@ -573,7 +573,7 @@
                             
                             
                             
-                            <li class="page">
+                            <li class="page active">
                                 <a href="/workshop/content/21-structure-of-a-workshop">13: Structure of a Workshop</a>
                             </li>
                             
@@ -627,7 +627,7 @@
                             
                             
                             
-                            <li class="page active">
+                            <li class="page">
                                 <a href="/workshop/content/30-workshop-definition">19: Workshop Definition</a>
                             </li>
                             
@@ -663,7 +663,7 @@
             </div>
             <div class="btn-toolbar float-end" role="toolbar">
                 <div class="btn-group btn-group-sm" role="group">
-                    <form action="/workshop/content/26-realtime-updates">
+                    <form action="/workshop/content/20-authoring-workshops">
                         <button class="btn btn-transparent" id="header-prev-page" type="submit"  aria-label="Prev"><span
                                 class="fas fa-arrow-left fa-inverse" aria-hidden="true"></span></button>
                     </form>
@@ -672,7 +672,7 @@
                             data-bs-toggle="modal" data-bs-target="#table-of-contents"><span class="fas fa-list fa-inverse"
                                 aria-hidden="true"></span></button>
                     </form>
-                    <form action="/workshop/content/99-workshop-summary">
+                    <form action="/workshop/content/22-publishing-workshops">
                         <button class="btn btn-transparent" id="header-next-page" type="submit"  aria-label="Next"><span
                                 class="fas fa-arrow-right fa-inverse" aria-hidden="true"></span></button>
                     </form>
@@ -695,49 +695,31 @@
         
         
         
-        <h1 class="title" id="title">19: Workshop Definition</h1>
+        <h1 class="title" id="title">13: Structure of a Workshop</h1>
         
         <div class="rendered-content">
-          <p>The publishing lifecycle as described pertains to the workshop files used for
-workshop instructions as well as any other files, scripts or applications used
-within the workshop session. These will be downloaded for each distinct workshop
-session.</p>
-<p>When the workshop was deployed using the <code>educates deploy-workshop</code> command, the
-configuration of the workshop environment was dictated by the workshop
-definition. This is a Kubernetes resource which describes where the workshop
-files can be found, as well as what capabilities are required for a workshop.</p>
-<p>When using the standard workshop directory structure, the workshop definition
-can be found in the <code>resources/workshop.yaml</code> file.</p>
-<pre tabindex="0"><code class="language-editor:open-file" data-lang="editor:open-file">file: ~/lab-demo-workshop/resources/workshop.yaml
-</code></pre><p>Actual deployment of a workshop environment based on the workshop definition
-only occurs when the workshop is registered with a training portal.</p>
-<p>When publishing a workshop, no update is made to the workshop definition
-of any workshop environment that has already been created.</p>
-<p>When a training portal is configured to monitor for changes to the workshop
-definition, updating the workshop definition will trigger the creation of a new
-workshop environment based on the new workshop definition and the old workshop
-environment will be shutdown, being deleted when all active workshop sessions
-against it have completed. Any new requests for the workshop will be directed
-towards the new workshop environment.</p>
-<p>This is done by first making the required changes to the workshop definition:</p>
-<pre tabindex="0"><code class="language-editor:select-matching-text" data-lang="editor:select-matching-text">file: ~/lab-demo-workshop/resources/workshop.yaml
-text: &#39;description: &#34;(.*)&#34;&#39;
-isRegex: true
-group: 1
-</code></pre><pre tabindex="0"><code class="language-editor:replace-text-selection" data-lang="editor:replace-text-selection">file: ~/lab-demo-workshop/resources/workshop.yaml
-text: &#34;An awesome workshop to demo use of Educates.&#34;
-</code></pre><p>Because you have a live preview running for the existing version of the
-workshop, you will need to exit it.</p>
-<pre tabindex="0"><code class="language-terminal:interrupt" data-lang="terminal:interrupt"></code></pre><p>Next update the workshop definition in the cluster using the command:</p>
-<pre tabindex="0"><code class="language-terminal:execute" data-lang="terminal:execute">command: educates update-workshop
-</code></pre><p>In your other web browser window terminate the running instance of the workshop
-session for the demo workshop. Upon returning to the training portal you should
-see that the description of the workshop has now changed.</p>
+          <p>The workshop template when used creates the following files in the top level directory:</p>
+<ul>
+<li><code>README.md</code> - A file telling everyone what the workshop is about. Replace the current content provided in the sample workshop with your own.</li>
+</ul>
+<p>Key sub directories and the files contained within them are:</p>
+<ul>
+<li><code>workshop</code> - Directory under which your workshop files reside.</li>
+<li><code>workshop/content</code> - Directory under which your workshop instructions resides. The files here follow Hugo content rules.</li>
+<li><code>resources</code> - Directory under which Kubernetes custom resources are stored for deploying the workshop using Educates.</li>
+<li><code>resources/workshop.yaml</code> - The custom resource for Educates which describes your workshop and requirements it may have when being deployed.</li>
+<li><code>workshop/config.yaml</code> - Configuration file with details of available modules which make up your workshop, data variables for use in content, and selectable paths through the workshop instructions. This file is optional unless you&rsquo;re going to create Pathways, which is a way to control complex workshops with multiple possible paths. If this file doesn&rsquo;t exist or no configuration is included within it, workshop instructions page ordering will be based on file name sort order, or page weights if defined in the meta data of pages.</li>
+</ul>
+<p>If your workshop instructions use images, you should follow the Hugo convention and place images in the <code>workshop/static</code> directory, or use page bundles and include the image for a page in the directory for the page bundle.</p>
+<p>A workshop may consist of other configuration files, and directories with other types of content, but this is the minimal set of files to get you started.</p>
+<h2 id="root-directory-for-exercises">Root directory for exercises</h2>
+<p>Because of possible proliferation of files and directories at the top level of the repository and thus potentially the home directory for the user when running the workshop environment, you can place files required for exercises during the workshop into the <code>exercises</code> sub directory below the root of the repository.</p>
+<p>When such an <code>exercises</code> sub directory exists, the initial working directory for the embedded terminal when created will be set to be <code>$HOME/exercises</code> instead of <code>$HOME</code>. Further, if the embedded editor is enabled, the sub directory will be opened as the workspace for the editor and only directories and files in that sub directory will be visible through the default view of the editor.</p>
 
         </div>
         
         <div class="page-meta clearfix">
-          <form action="/workshop/content/99-workshop-summary">
+          <form action="/workshop/content/22-publishing-workshops">
             <button class="btn btn-lg btn-primary float-end" id="next-page" type="submit" aria-label="continue">
               Continue </button>
           </form>

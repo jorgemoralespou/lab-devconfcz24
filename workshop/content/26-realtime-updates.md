@@ -20,6 +20,7 @@ Make some more changes to the workshop instructions.
 ```editor:append-lines-to-file
 file: ~/lab-demo-workshop/workshop/content/00-workshop-overview.md
 text: |
+
   Especially when you see the live update feature in action.
 ```
 

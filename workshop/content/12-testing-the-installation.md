@@ -20,20 +20,5 @@ When the training portal service is ready, this should automatically open a new
 web browser window. Unfortunately though this doesn't work reliably when using
 the command inside the terminal of an Educates workshop session due to browser
 popup restrictions, it should however work were you running it in a terminal on
-your local machine.
-
-For this workshop session therefore, open the following URL:
-
-```dashboard:open-url
-url: http://educates-cli-ui.{{< param session_hostname >}}
-```
-
-When prompted for an access code, enter in the password obtained by running:
-
-```terminal:execute
-command: educates view-credentials
-```
-
-**NOTE:** If you did access the workshop via the `browse-workshop` command, 
-or the URL url that it prints or clicked on the popup blocker and got in that way, 
-the code has already been injected in the URL.
+your local machine. You can either click one more time, or copy the URL that's been
+printed in the terminal.

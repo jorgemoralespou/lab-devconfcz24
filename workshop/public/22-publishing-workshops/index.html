@@ -439,9 +439,9 @@
   data-session-namespace='educates-cli-w13-s002' data-workshop-namespace='educates-cli-w13'
   data-training-portal='educates-cli' data-ingress-domain='kind.mac16.tanzu-devs.com'
   data-ingress-protocol='https' data-ingress-port-suffix=''
-  data-prev-page='26-realtime-updates' data-current-page='30-workshop-definition'
-  data-next-page='99-workshop-summary' data-page-format='markdown' data-code-fences='chroma'
-  data-page-step='19' data-pages-total='20'>
+  data-prev-page='21-structure-of-a-workshop' data-current-page='22-publishing-workshops'
+  data-next-page='23-deploy-the-workshop' data-page-format='markdown' data-code-fences='chroma'
+  data-page-step='14' data-pages-total='20'>
 
   
 
@@ -582,7 +582,7 @@
                             
                             
                             
-                            <li class="page">
+                            <li class="page active">
                                 <a href="/workshop/content/22-publishing-workshops">14: Publishing Workshops</a>
                             </li>
                             
@@ -627,7 +627,7 @@
                             
                             
                             
-                            <li class="page active">
+                            <li class="page">
                                 <a href="/workshop/content/30-workshop-definition">19: Workshop Definition</a>
                             </li>
                             
@@ -663,7 +663,7 @@
             </div>
             <div class="btn-toolbar float-end" role="toolbar">
                 <div class="btn-group btn-group-sm" role="group">
-                    <form action="/workshop/content/26-realtime-updates">
+                    <form action="/workshop/content/21-structure-of-a-workshop">
                         <button class="btn btn-transparent" id="header-prev-page" type="submit"  aria-label="Prev"><span
                                 class="fas fa-arrow-left fa-inverse" aria-hidden="true"></span></button>
                     </form>
@@ -672,7 +672,7 @@
                             data-bs-toggle="modal" data-bs-target="#table-of-contents"><span class="fas fa-list fa-inverse"
                                 aria-hidden="true"></span></button>
                     </form>
-                    <form action="/workshop/content/99-workshop-summary">
+                    <form action="/workshop/content/23-deploy-the-workshop">
                         <button class="btn btn-transparent" id="header-next-page" type="submit"  aria-label="Next"><span
                                 class="fas fa-arrow-right fa-inverse" aria-hidden="true"></span></button>
                     </form>
@@ -695,49 +695,51 @@
         
         
         
-        <h1 class="title" id="title">19: Workshop Definition</h1>
+        <h1 class="title" id="title">14: Publishing Workshops</h1>
         
         <div class="rendered-content">
-          <p>The publishing lifecycle as described pertains to the workshop files used for
-workshop instructions as well as any other files, scripts or applications used
-within the workshop session. These will be downloaded for each distinct workshop
-session.</p>
-<p>When the workshop was deployed using the <code>educates deploy-workshop</code> command, the
-configuration of the workshop environment was dictated by the workshop
-definition. This is a Kubernetes resource which describes where the workshop
-files can be found, as well as what capabilities are required for a workshop.</p>
-<p>When using the standard workshop directory structure, the workshop definition
-can be found in the <code>resources/workshop.yaml</code> file.</p>
-<pre tabindex="0"><code class="language-editor:open-file" data-lang="editor:open-file">file: ~/lab-demo-workshop/resources/workshop.yaml
-</code></pre><p>Actual deployment of a workshop environment based on the workshop definition
-only occurs when the workshop is registered with a training portal.</p>
-<p>When publishing a workshop, no update is made to the workshop definition
-of any workshop environment that has already been created.</p>
-<p>When a training portal is configured to monitor for changes to the workshop
-definition, updating the workshop definition will trigger the creation of a new
-workshop environment based on the new workshop definition and the old workshop
-environment will be shutdown, being deleted when all active workshop sessions
-against it have completed. Any new requests for the workshop will be directed
-towards the new workshop environment.</p>
-<p>This is done by first making the required changes to the workshop definition:</p>
-<pre tabindex="0"><code class="language-editor:select-matching-text" data-lang="editor:select-matching-text">file: ~/lab-demo-workshop/resources/workshop.yaml
-text: &#39;description: &#34;(.*)&#34;&#39;
-isRegex: true
-group: 1
-</code></pre><pre tabindex="0"><code class="language-editor:replace-text-selection" data-lang="editor:replace-text-selection">file: ~/lab-demo-workshop/resources/workshop.yaml
-text: &#34;An awesome workshop to demo use of Educates.&#34;
-</code></pre><p>Because you have a live preview running for the existing version of the
-workshop, you will need to exit it.</p>
-<pre tabindex="0"><code class="language-terminal:interrupt" data-lang="terminal:interrupt"></code></pre><p>Next update the workshop definition in the cluster using the command:</p>
-<pre tabindex="0"><code class="language-terminal:execute" data-lang="terminal:execute">command: educates update-workshop
-</code></pre><p>In your other web browser window terminate the running instance of the workshop
-session for the demo workshop. Upon returning to the training portal you should
-see that the description of the workshop has now changed.</p>
+          <p>To deploy the workshop we first need to publish it to a place where Educates
+will be able to download the workshop files at runtime.</p>
+<p>Educates supports different mechanisms for hosting of the workshop files,
+including:</p>
+<ul>
+<li>Hosting workshop files as an OCI image on an image registry.</li>
+<li>Hosting workshop files as a tar/zip archive on a web server.</li>
+<li>Hosting workshop files on a hosted Git repository (eg., GitHub).</li>
+</ul>
+<p>In other words, unlike many other SaaS based training platforms, you are not
+required to edit your workshop content in the platforms web interface. Instead,
+you can work on your workshop content locally and host your workshop files
+separately, with Educates downloading the workshop files when required.</p>
+<p>Of the mechanisms listed above, the recommended method is to publish workshop
+files as an OCI image to an image registry. The standard workflow for authoring
+workshops using the CLI and a local Educates cluster is tailored to using this
+mechanism.</p>
+<p>To publish our workshop, first change to the directory containing the workshop
+files:</p>
+<pre tabindex="0"><code class="language-terminal:execute" data-lang="terminal:execute">command: cd ~/lab-demo-workshop
+</code></pre><p>and run the following command to publish the workshop files.</p>
+<pre tabindex="0"><code class="language-terminal:execute" data-lang="terminal:execute">command: educates publish-workshop
+</code></pre><p>What is being done here is that the workshop files from the current directory
+are being bundled up into an OCI image and pushed to a local image registry
+hosted at <code>localhost:5001</code>. This image registry was automatically created for
+you as part of this workshop session. If you used the CLI to create a local
+Kubernetes cluster running Educates, a local image registry would similarly be
+automatically deployed for you and integrated with the cluster. The process here
+in this workshop session thus mimics what you can expect if using the Educates
+CLI from your own computer using a local Kubernetes cluster.</p>
+<p>If not using a local Kubernetes cluster and you were instead using a hosted
+Kubernetes cluster, instead of using a local image registry you would need to
+specify a separate image registry to use which is visible to the hosted
+Kubernetes cluster.</p>
+<p>If using GitHub to host workshops, you could use GitHub container registry, and
+to make that process simpler Educates provides a pre-packaged GitHub action
+which can be used to automate publishing of workshops.</p>
 
         </div>
         
         <div class="page-meta clearfix">
-          <form action="/workshop/content/99-workshop-summary">
+          <form action="/workshop/content/23-deploy-the-workshop">
             <button class="btn btn-lg btn-primary float-end" id="next-page" type="submit" aria-label="continue">
               Continue </button>
           </form>
