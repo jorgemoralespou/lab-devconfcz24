@@ -1,0 +1,679 @@
+<!DOCTYPE html>
+<html>
+
+<head><script src="/workshop/content/livereload.js?mindelay=10&amp;v=2&amp;port=443&amp;path=workshop/content/livereload" data-no-instant defer></script>
+  <meta charset="utf-8">
+<meta name="generator" content="Educates (hugo)">
+
+<title>
+  
+  </title>
+
+<link rel="stylesheet" href='/workshop/static/bootstrap/css/bootstrap.css'>
+<link rel="stylesheet" href='/workshop/static/fontawesome/css/all.min.css'>
+
+<link rel="stylesheet" href='/workshop/static/styles/educates.css'>
+<link rel="stylesheet" href='/workshop/static/styles/educates-markdown.css'>
+<link rel="stylesheet" href='/workshop/static/theme/workshop-instructions.css'>
+
+<link rel="shortcut icon" href='/workshop/static/images/favicon.ico'>
+
+
+
+
+
+</head>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<body data-google-tracking-id=''
+  data-clarity-tracking-id=''
+  data-amplitude-tracking-id='' data-workshop-name='educates-cli--lab-devconfcz24-68963d9'
+  data-session-namespace='educates-cli-w11-s001' data-workshop-namespace='educates-cli-w11'
+  data-training-portal='educates-cli' data-ingress-domain='kind.mac16.tanzu-devs.com'
+  data-ingress-protocol='https' data-ingress-port-suffix=''
+  data-prev-page='30-workshop-definition' data-current-page='99-workshop-summary'
+  data-next-page='' data-page-format='markdown' data-code-fences='chroma'
+  data-page-step='18' data-pages-total='18'>
+
+  
+
+
+
+
+<div class="modal fade" id="table-of-contents" tabindex="-1" role="dialog" aria-labelledby="table-of-contents-title"
+    aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 id="table-of-contents-title">Workshop</h5>
+                <button class="btn btn-close" type="button" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <ul class="menu">
+                    <li class="category">
+                        <ul class="modules">
+                            
+                            
+                            
+                            
+                            
+                            <li class="page">
+                                <a href="/workshop/content/00-workshop-overview">1: Workshop Overview</a>
+                            </li>
+                            
+                            
+                            
+                            
+                            
+                            
+                            <li class="page">
+                                <a href="/workshop/content/01-kubernetes-cluster">2: Kubernetes Cluster</a>
+                            </li>
+                            
+                            
+                            
+                            
+                            
+                            
+                            <li class="page">
+                                <a href="/workshop/content/02-packaging-mechanism">3: Packaging Mechanism</a>
+                            </li>
+                            
+                            
+                            
+                            
+                            
+                            
+                            <li class="page">
+                                <a href="/workshop/content/03-clickable-actions">4: Clickable Actions</a>
+                            </li>
+                            
+                            
+                            
+                            
+                            
+                            
+                            <li class="page">
+                                <a href="/workshop/content/10-cluster-create">5: Cluster Installation</a>
+                            </li>
+                            
+                            
+                            
+                            
+                            
+                            
+                            <li class="page">
+                                <a href="/workshop/content/11-educates-install">6: Cluster Installation</a>
+                            </li>
+                            
+                            
+                            
+                            
+                            
+                            
+                            <li class="page">
+                                <a href="/workshop/content/12-testing-the-installation">7: Testing the Installation</a>
+                            </li>
+                            
+                            
+                            
+                            
+                            
+                            
+                            <li class="page">
+                                <a href="/workshop/content/13-accesing-a-workshop">8: Accessing Workshops</a>
+                            </li>
+                            
+                            
+                            
+                            
+                            
+                            
+                            <li class="page">
+                                <a href="/workshop/content/14-the-training-portal">9: The training portal</a>
+                            </li>
+                            
+                            
+                            
+                            
+                            
+                            
+                            <li class="page">
+                                <a href="/workshop/content/15-definition-of-a-workshop">10: Definition of a workshop</a>
+                            </li>
+                            
+                            
+                            
+                            
+                            
+                            
+                            <li class="page">
+                                <a href="/workshop/content/20-authoring-workshops">11: Authoring Workshops</a>
+                            </li>
+                            
+                            
+                            
+                            
+                            
+                            
+                            <li class="page">
+                                <a href="/workshop/content/21-publishing-workshops">12: Publishing Workshops</a>
+                            </li>
+                            
+                            
+                            
+                            
+                            
+                            
+                            <li class="page">
+                                <a href="/workshop/content/22-deploy-the-workshop">13: Deploy the Workshop</a>
+                            </li>
+                            
+                            
+                            
+                            
+                            
+                            
+                            <li class="page">
+                                <a href="/workshop/content/23-updating-instructions">14: Updating Instructions</a>
+                            </li>
+                            
+                            
+                            
+                            
+                            
+                            
+                            <li class="page">
+                                <a href="/workshop/content/24-manually-updating">15: Manually Updating</a>
+                            </li>
+                            
+                            
+                            
+                            
+                            
+                            
+                            <li class="page">
+                                <a href="/workshop/content/25-realtime-updates">16: Realtime Updates</a>
+                            </li>
+                            
+                            
+                            
+                            
+                            
+                            
+                            <li class="page">
+                                <a href="/workshop/content/30-workshop-definition">17: Workshop Definition</a>
+                            </li>
+                            
+                            
+                            
+                            
+                            
+                            
+                            <li class="page active">
+                                <a href="/workshop/content/99-workshop-summary">18: Workshop Summary</a>
+                            </li>
+                            
+                            
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-primary" type="button" data-bs-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="header page-navbar sticky-top bg-primary">
+    <div class="row row-no-gutters">
+        <div class="col-sm-12">
+            <div class="btn-group btn-group-sm" role="group">
+                <form action='/workshop/content/'>
+                    <button class="btn btn-transparent" id="header-goto-home" type="submit" aria-label="home"><span
+                            class="fas fa-home fa-inverse" aria-hidden="true"></span></button>
+                </form>
+            </div>
+            <div class="btn-toolbar float-end" role="toolbar">
+                <div class="btn-group btn-group-sm" role="group">
+                    <form action="/workshop/content/30-workshop-definition">
+                        <button class="btn btn-transparent" id="header-prev-page" type="submit"  aria-label="Prev"><span
+                                class="fas fa-arrow-left fa-inverse" aria-hidden="true"></span></button>
+                    </form>
+                    <form>
+                        <button class="btn btn-transparent" id="header-goto-toc" type="button" aria-label="TOC"
+                            data-bs-toggle="modal" data-bs-target="#table-of-contents"><span class="fas fa-list fa-inverse"
+                                aria-hidden="true"></span></button>
+                    </form>
+                    <form action="/workshop/content/">
+                        <button class="btn btn-transparent" id="header-next-page" type="submit" disabled=""  aria-label="Next"><span
+                                class="fas fa-arrow-right fa-inverse" aria-hidden="true"></span></button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+  
+
+
+
+
+<div class="container-fluid main-content">
+  <div class="row">
+    <div class="col-sm-12">
+      <section class="page-content" id="main">
+        
+        
+        
+        <h1 class="title" id="title">18: Workshop Summary</h1>
+        
+        <div class="rendered-content">
+          <p>You have reached the end of this workshop. For more information about Educates
+see:</p>
+<ul>
+<li><a href="https://docs.educates.dev">Educates Documentation</a></li>
+<li><a href="https://github.com/vmware-tanzu-labs/educates-training-platform">Educates GitHub Repository</a></li>
+</ul>
+<p>If you have questions about Educates or need help installing or using it, you
+can reach out to the developers of Educates and other Educates users in the
+<code>#educates</code> Slack channel hosted under the <a href="https://kubernetes.slack.com/">Kubernetes Slack
+Community</a>.</p>
+
+        </div>
+        
+        <div class="page-meta clearfix">
+          <form>
+            <button class="btn btn-lg btn-primary float-end" id="next-page" type="button" aria-label="finish"
+              onclick="educates.finished_workshop()">
+              Finish Workshop </button>
+          </form>
+        </div>
+        
+      </section>
+    </div>
+  </div>
+</div>
+</section>
+
+
+  <script src='/workshop/static/scripts/educates-bundle.js'></script>
+<script src='/workshop/static/theme/workshop-instructions.js'></script>
+
+
+</body>
+
+</html>

@@ -1,0 +1,10 @@
+clusterInfrastructure:
+  provider: kind
+  caCertificateRef:
+    name: kind-mac16-tanzu-devs-com-ca
+    namespace: educates-secrets
+clusterPackages:
+  kapp-controller:
+    enabled: true
+clusterIngress:
+  domain: kind.mac16.tanzu-devs.com
