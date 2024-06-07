@@ -15,6 +15,9 @@ Exit the running instance of the demo workshop you have running in your other
 web browser window and start a new workshop session. Confirm you can see the
 same workshop instructions you had previously.
 
+**NOTE:** Do not proceed with next step until you have gotten a new session 
+on your test workshop (with live updates enabled).
+
 Make some more changes to the workshop instructions.
 
 ```editor:append-lines-to-file

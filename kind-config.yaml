@@ -8,3 +8,27 @@ clusterPackages:
     enabled: true
 clusterIngress:
   domain: kind.mac16.tanzu-devs.com
+imagePuller:
+  enabled: true
+  prePullImages:
+    - k3s
+    - registry
+    - vcluster
+    - session-manager
+    - secrets-manager
+imageVersions:
+- image: "docker.io/rancher/k3s:v1.25.3-k3s1"
+  name: k3s
+- image: "docker.io/library/registry:2.8.3"
+  name: registry
+- image: "ghcr.io/loft-sh/vcluster:0.19.5"
+  name: vcluster
+- image: "ghcr.io/jorgemoralespou/educates-base-environment:installer-clean"
+  name: base-environment
+- image: "ghcr.io/jorgemoralespou/educates-training-portal:installer-clean"
+  name: training-portal
+- image: "ghcr.io/jorgemoralespou/educates-session-manager:installer-clean"
+  name: session-manager
+- image: "ghcr.io/jorgemoralespou/educates-secrets-manager:installer-clean"
+  name: secrets-manager
+

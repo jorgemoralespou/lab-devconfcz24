@@ -28,3 +28,7 @@ command: kubectl get workshops -o yaml
 ```
 
 **NOTE:** This custom resource does not have a `status` field as it's only the static definition of a workshop
+
+If you have launched the workshop `Kubernetes Fundamentals` on the other tab in your browser, you might
+see some of these capabilities, like the embedded Kubernetes console and slides, along with the terminals and editor
+that you can see in this workshop.
