@@ -31,6 +31,6 @@ Educates has been installed succesfully
 
 Note that this worked because we had effective admin access to the Kubernetes
 cluster we were deploying to. If you only have restricted access to the
-Kubernetes cluster you are using this would `NOT` have worke, because
+Kubernetes cluster you are using this would `NOT` have worked, because
 Educates creates new custom resource types in the cluster, and installs a number
 of operators to manage those custom resources.

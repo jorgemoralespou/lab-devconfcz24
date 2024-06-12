@@ -11,6 +11,13 @@ To demonstrate this mechanism run the command:
 command: educates serve-workshop --patch-workshop
 ```
 
+It is normal that this command doesn't return. You should be good to go as long
+as it says:
+
+```
+Proxy listening on: 0.0.0.0:10081
+```
+
 Exit the running instance of the demo workshop you have running in your other
 web browser window and start a new workshop session. Confirm you can see the
 same workshop instructions you had previously.

@@ -2,7 +2,7 @@
 title: Definition of a workshop
 ---
 
-The `Workshop` is a Kubernetes custom resource that defines, amongst other:
+The `Workshop` is a Kubernetes custom resource that defines, including:
 
 - Name and description
 - T-shirt size for the associated namespace's resources (Memory and Cpu)

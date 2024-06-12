@@ -20,8 +20,9 @@ command: educates browse-workshops
 ```
 
 **NOTE**: Remember that if popup blocker is blocking this url, you can copy and
-paste the URL that the command outputs in a new browser tab.
+paste the URL that the command outputs in a new browser tab, or even click on
+the URL as it is displayed in the terminal for this workshop session.
 
 Start the workshop for the newly created demo workshop to verify it is working
 and to view the default workshop instructions. Remember this might take some time 
-with current configuration, so be pacient.
+with current configuration, so be patient.

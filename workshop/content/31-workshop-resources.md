@@ -5,7 +5,7 @@ title: Workshop Resources
 Sometimes you need your workshop session to have things already existing for the 
 user to be able to exercise your workshop. Educates allows you to deploy additional
 Kubernetes resources along with your session, or shared for all workshop sessions. 
-This option can be handy when you want all attendees to share acces to a single resource,
+This option can be handy when you want all attendees to share access to a single resource,
 or when a resource can only be created once in a shared cluster (e.g. CRDs) or even to
 save on cluster resources.
 
@@ -69,10 +69,10 @@ value:
   - name: webapp
     protocol: http
     port: 8080
-    host: webapp-$(workshop_namespace).svc.$(cluster_domain)
+    host: webapp.$(session_namespace).svc.$(cluster_domain)
   dashboards:
   - name: Webapp
-    url: $(ingress_protocol)://webapp-$(session_namespace).$(ingress_domain)
+    url: $(ingress_protocol)://webapp-$(session_hostname)
 ```
 
 This will be accesible at `{{< param ingress_protocol >}}://webapp-{{< param session_hostname >}}`
@@ -82,7 +82,3 @@ Next update the workshop definition in the cluster using the command:
 ```terminal:execute
 command: educates update-workshop
 ```
-
-In your other web browser window terminate the running instance of the workshop
-session for the demo workshop. Upon returning to the training portal you should
-see that the description of the workshop has now changed.

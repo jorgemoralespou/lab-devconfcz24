@@ -3,7 +3,7 @@ title: Kubernetes Cluster
 ---
 
 The full Educates training platform requires a Kubernetes cluster in which to
-run. There's more options, but we're going to focus on the most common one, running
+run. There are more options, but we're going to focus on the most common one, running
 Educates on a Kubernetes cluster.
 
 Educates provides an opinionated installer to get you up and running on many flavours 

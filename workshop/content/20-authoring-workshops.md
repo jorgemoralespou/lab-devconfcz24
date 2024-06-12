@@ -18,5 +18,3 @@ To view the set of files created run:
 ```terminal:execute
 command: tree lab-demo-workshop
 ```
-
-Before we change any files let's deploy the workshop.
