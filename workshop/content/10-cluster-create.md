@@ -74,7 +74,7 @@ To see what hidden configuration was added in the case of setting the provider
 to `vcluster`, run:
 
 ```terminal:execute
-command: educates admin platform deploy --config vcluster-config.yaml --show-packages-values --skip-image-resolution
+command: educates admin platform deploy --config vcluster-config.yaml --show-packages-values
 ```
 
 The aim of the opinionated cluster configurations is thus to take a fresh

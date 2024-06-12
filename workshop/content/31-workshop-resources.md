@@ -16,6 +16,18 @@ the workshop tabs.
 file: ~/lab-demo-workshop/resources/workshop.yaml
 ```
 
+```editor:select-matching-text
+file: ~/lab-demo-workshop/resources/workshop.yaml
+text: "console:"
+after: 1
+```
+  
+```editor:replace-text-selection
+file: ~/lab-demo-workshop/resources/workshop.yaml
+text: |2
+        console:
+          enabled: true
+```
 
 ```editor:insert-value-into-yaml
 file: ~/lab-demo-workshop/resources/workshop.yaml
@@ -81,4 +93,21 @@ Next update the workshop definition in the cluster using the command:
 
 ```terminal:execute
 command: educates update-workshop
+```
+
+~~~editor:append-lines-to-file
+file: ~/lab-demo-workshop/workshop/content/00-workshop-overview.md
+text: |
+
+  ```dashboard:open-dashboard
+  name: Webapp
+  ```
+
+  ```dashboard:open-dashboard
+  name: Console
+  ```
+~~~
+
+```terminal:execute
+command: educates publish-workshop
 ```
