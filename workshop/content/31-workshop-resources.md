@@ -8,7 +8,7 @@ you to deploy additional Kubernetes resources along with your session, or shared
 across all workshop sessions. In the case of the latter, the option can be handy
 when you want all attendees to share access to a single resource, or when a
 resource can only be created once in a shared cluster (e.g. CRDs) or even to
-save on cluster resources.
+save compute resources on cluster's compute resources.
 
 Let's see how you can deploy a simple hello-world application and expose it in 
 the workshop tabs, all ready for your user.
@@ -112,6 +112,9 @@ Next update the workshop definition in the cluster using the command:
 command: educates update-workshop
 ```
 
+We will also add two clickable actions to the workshop we're creating 
+to demonstrate how we can open the new tabs we have just added:
+
 ~~~editor:append-lines-to-file
 file: ~/lab-demo-workshop/workshop/content/00-workshop-overview.md
 text: |
@@ -125,6 +128,11 @@ text: |
   ```
 ~~~
 
+We update the workshop content by publishing it:
 ```terminal:execute
 command: educates publish-workshop
 ```
+
+And now, we can navigate to the other browser terminal tab and create
+a new instance of the workshop to explore the new features we
+just added.

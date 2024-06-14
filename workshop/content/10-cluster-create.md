@@ -2,10 +2,7 @@
 title: Cluster Installation
 ---
 
-The name of the Educates CLI is `educates`, and there's flavors of the CLI for 
-MacOS and Linux, both AMD64 and ARM64, which can be found in 
-[the project's GitHub repository](https://github.com/vmware-tanzu-labs/educates-training-platform/releases).
-For this workshop we are using the CLI from the pre-release version of 3.0.0,
+**NOTE:** For this workshop we are using the CLI from the pre-release version of 3.0.0,
 which works a bit differently to 2.7.1, so if using Educates in the future,
 make sure you grab 3.0.0 or later to have it work the same way as shown in this
 workshop.
@@ -51,7 +48,7 @@ text: |
         policyEngine: none
 
     workshopSecurity:
-        rulesEngine: none        
+        rulesEngine: none
 ```
 
 The two key bits of information that we are supplying here are the type of
@@ -60,7 +57,7 @@ hosted by the cluster after Educates has been installed.
 
 For this workshop session running in Educates, we set the ingress domain for
 our Educates installation to correspond to the ingress domain allocated for
-this workshop session.
+your session.
 
 To make it easier to install Educates into a freshly created Kubernetes cluster
 a number of opinionated configurations are provided for different infrastructure

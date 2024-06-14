@@ -1,3 +1,4 @@
 workshop/.hugo_build.lock
 devconf
 public
+test-*

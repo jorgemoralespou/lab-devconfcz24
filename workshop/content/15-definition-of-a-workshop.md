@@ -2,7 +2,7 @@
 title: Definition of a workshop
 ---
 
-The `Workshop` is a Kubernetes custom resource that defines, including:
+The `Workshop` is a Kubernetes `Custom Resource` that defines static characteristics including:
 
 - Name and description
 - T-shirt size for the associated namespace's resources (Memory and Cpu)
@@ -21,7 +21,7 @@ The `Workshop` is a Kubernetes custom resource that defines, including:
 Read the documentation if you want to know more about the 
 [Workshop resource](https://docs.educates.dev/custom-resources/workshop-definition)
 
-As the Workshop is another Kubernetes Custom Resource, you can get the details with `kubectl`.
+Again, you can get all the details with `kubectl`.
 
 ```terminal:execute
 command: kubectl get workshops -o yaml

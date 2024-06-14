@@ -12,7 +12,7 @@ Key sub directories and the files contained within them are:
 * `workshop/content` - Directory under which your workshop instructions resides. The files here follow Hugo content rules.
 * `resources` - Directory under which Kubernetes custom resources are stored for deploying the workshop using Educates.
 * `resources/workshop.yaml` - The custom resource for Educates which describes your workshop and requirements it may have when being deployed.
-* `workshop/config.yaml` - Configuration file with details of available modules which make up your workshop, data variables for use in content, and selectable paths through the workshop instructions. This file is optional unless you're going to create Pathways, which is a way to control complex workshops with multiple possible paths. If this file doesn't exist or no configuration is included within it, workshop instructions page ordering will be based on file name sort order, or page weights if defined in the meta data of pages.
+* `workshop/config.yaml` - This file is optional unless you're going to create Pathways, which is a way to control complex workshops with multiple possible paths. If this file doesn't exist or no configuration is included within it, workshop instructions page ordering will be based on file name sort order, or page weights if defined in the meta data of pages.
 
 If your workshop instructions use images, you should follow the Hugo convention and place images in the `workshop/static` directory, or use page bundles and include the image for a page in the directory for the page bundle.
 

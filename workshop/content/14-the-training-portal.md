@@ -2,7 +2,7 @@
 title: The training portal
 ---
 
-The `Training Portal` is a Kubernetes custom resource, so one can use Kubernetes client
+The `Training Portal`, effectively is a Kubernetes `Custom Resource`, so one can use Kubernetes client
 to get details about the resource:
 
 ```terminal:execute
